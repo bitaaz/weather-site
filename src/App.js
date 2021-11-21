@@ -1,9 +1,7 @@
 import React from "react";
-
+import Home from "./components/Home";
 export function App() {
     return(
-        <div>
-            <h1>welcome to Bita!:)good luck!</h1>
-        </div>
+        <Home/>
     )
 }
