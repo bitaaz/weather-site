@@ -1,16 +1,19 @@
 import React from "react";
-import {useHomeFetch} from "./hooks/useHomeFetch";
+import { useHomeFetch } from "./hooks/useHomeFetch";
+import { Navbar } from "./navbar/navbar";
+import { Hero } from "./hero/Hero";
 
 const Home = () => {
-    const {weatherData} = useHomeFetch('London')
+  const { weatherData } = useHomeFetch("London");
 
-    console.log(weatherData)
+  console.log(weatherData);
 
-    return(
-        <div>
-            <h1>weather data...</h1>
-        </div>
-    )
-}
+  return (
+    <>
+      <Navbar />
+      <Hero />
+    </>
+  );
+};
 
-export default Home
+export default Home;
