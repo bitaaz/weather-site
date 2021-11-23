@@ -1,11 +1,11 @@
 import React from "react";
-import Logo from "../../../images/logo.png";
+import Logo from "../../../images/logo-removebg-preview.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.scss";
 
 export function Navbar() {
   return (
-    <nav className="navbar navbar-light   fixed-top">
+    <nav className="navbar navbar-light fixed-top">
       <div className="container-fluid">
         <a href="#" className="pe-auto text-decoration-none text-black">
           <div className="d-flex align-items-center">
