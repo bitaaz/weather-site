@@ -5,19 +5,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { setSearchedCity } from "../../reducers/city";
-import { useHomeFetch } from "../hooks/useHomeFetch";
+import { useSearchBarFetch } from "../hooks/useSearchBarFetch";
 
 export function SearchBar() {
   const dispatch = useDispatch();
 
-  const { weatherData } = useHomeFetch();
-
-  console.log(weatherData);
+  const { weatherData } = useSearchBarFetch();
 
   return (
     <>
-      <div className="search">
-        <FontAwesomeIcon icon={faSearch} />
+      <div className={"search"}>
+        <FontAwesomeIcon icon={faSearch} style={{ color: "gray" }} />
         <input
           type="text"
           className="form-control"
@@ -29,12 +27,16 @@ export function SearchBar() {
         <button className="btn btn-primary">Search</button>
       </div>
       {weatherData.length !== 0 ? (
-        <div className="card position-absolute search-results">
-          {weatherData.map((item) => (
-            <div className="card-body" key={item.id}>
-              {item.name}
+        <div className="container results align-items-center justify-content-center">
+          <div className="row ">
+            <div className="card position-absolute search-results">
+              {weatherData.map((item) => (
+                <div className="card-body card-item" key={item.id}>
+                  {item.name}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       ) : (
         <div />
