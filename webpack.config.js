@@ -28,6 +28,8 @@ module.exports = {
     port: 3010,
     open: true,
     hot: true,
+    //Access dev server from arbitrary url
+    historyApiFallback: true,
   },
   devtool: "inline-source-map",
   module: {
