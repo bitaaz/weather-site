@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <div className="container">
       <div className="row height justify-content-center align-items-center">
-        <div className="col-md-8">
+        <div className="col-12 col-lg-8">
           <SearchBar />
         </div>
       </div>
