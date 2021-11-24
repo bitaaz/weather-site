@@ -45,7 +45,7 @@ import { useSelector } from "react-redux";
 
 const initialState = [];
 
-export const useHomeFetch = () => {
+export const useSearchBarFetch = () => {
   const [weatherData, setWeatherData] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
