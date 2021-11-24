@@ -1,13 +1,13 @@
 import React from "react";
-import Logo from "../../../images/logo-removebg-preview.png";
+import Logo from "../../../images/images-removebg-preview.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.scss";
 
 export function Navbar() {
   return (
     <nav className="navbar navbar-light fixed-top">
-      <div className="container-fluid">
-        <a href="#" className="pe-auto text-decoration-none text-black">
+      <div className="container-fluid d-flex">
+        <a href="/" className="navbar-brand text-white">
           <div className="d-flex align-items-center">
             <img
               src={Logo}
@@ -16,10 +16,10 @@ export function Navbar() {
               alt="logo"
               className="d-inline-block align-text-top"
             />
-            <h5 className="mt-1 ms-1">Weather Site</h5>
+            <h5 className="mt-1 ms-1">WeatherSite</h5>
           </div>
         </a>
-        <div style={{ cursor: "pointer" }}>
+        <div style={{ cursor: "pointer", color: "white" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="26"
