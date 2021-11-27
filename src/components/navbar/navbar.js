@@ -5,7 +5,7 @@ import "./navbar.scss";
 
 export function Navbar() {
   return (
-    <nav className="navbar navbar-light fixed-top">
+    <nav className="navbar navbar-light fixed-top bg-dark">
       <div className="container-fluid d-flex">
         <a href="/" className="navbar-brand text-white">
           <div className="d-flex align-items-center">
