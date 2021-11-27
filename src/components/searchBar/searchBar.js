@@ -6,6 +6,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { setSearchedCity } from "../../reducers/city";
 import { useSearchBarFetch } from "../hooks/useSearchBarFetch";
+import { Link } from "react-router-dom";
 
 export function SearchBar() {
   const dispatch = useDispatch();
@@ -31,9 +32,13 @@ export function SearchBar() {
           <div className="row ">
             <div className="card position-absolute search-results">
               {weatherData.map((item) => (
-                <div className="card-body card-item" key={item.id}>
-                  {item.name}
-                </div>
+                <Link
+                  to={`/${item.url}`}
+                  key={item.id}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <div className="card-body card-item">{item.name}</div>
+                </Link>
               ))}
             </div>
           </div>
