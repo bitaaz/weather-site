@@ -1,8 +1,8 @@
 import { CURRENT_WEATHER_CONDITION, SEARCH_LOCATION } from "./config";
 
 const api_settings = {
-  fetch_current_weather_condition: async (city) => {
-    const endpoint = `${CURRENT_WEATHER_CONDITION}&q=${city}`;
+  fetch_current_weather_condition: async (city, days) => {
+    const endpoint = `${CURRENT_WEATHER_CONDITION}&q=${city}&days=${days}`;
     return await (await fetch(endpoint)).json();
   },
   fetch_location: async (location) => {
