@@ -10,8 +10,8 @@ export function CurrentWeatherCard({ info }) {
       >
         <div className="card-body ps-4 py-4 ">
           <div className="row">
-            <div className="col-10">
-              <h5 className="fw-bold">
+            <div className="col-10 col-xl-9 info-col">
+              <h5 className="fw-bold location-text">
                 {info.location.name +
                   ", " +
                   info.location.region +
@@ -21,22 +21,26 @@ export function CurrentWeatherCard({ info }) {
               <p className="m-0 time">
                 {info.location.localtime.split(" ")[1]}
               </p>
-              <h1 className="display-1 fw-bold">{info.current.temp_c}°</h1>
-              <h4 className="fw-bold">{info.current.condition.text}</h4>
-              <p style={{ fontSize: "20px" }}>
+              <h1 className="display-1 fw-bold temp-text">
+                {info.current.temp_c}°
+              </h1>
+              <h4 className="fw-bold condition-text ">
+                {info.current.condition.text}
+              </h4>
+              <p className="feels-like">
                 Feels like: {info.current.feelslike_c}°
               </p>
               <p
-                className="mb-0"
-                style={{ color: "rgba(0,0,0,0.5)", fontSize: "15px" }}
+                className="mb-0 last-update"
+                style={{ color: "rgba(0,0,0,0.5)" }}
               >
                 Last Updated: {info.current.last_updated}
               </p>
             </div>
             <div className="col mt-5">
               <img
+                className="condition-img"
                 src={info.current.condition.icon}
-                style={{ width: "120px", height: "120px" }}
                 alt="weather-condition-logo"
               />
             </div>
