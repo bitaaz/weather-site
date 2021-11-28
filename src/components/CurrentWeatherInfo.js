@@ -6,7 +6,7 @@ import { CurrentWeatherCard } from "./currentWeatherCard/CurrentWeatherCard";
 
 export function CurrentWeatherInfo() {
   const params = useParams();
-  const { weatherInfo } = useCurrentWeatherInfoFetch(params.city);
+  const { weatherInfo } = useCurrentWeatherInfoFetch(params.city, 1);
 
   // if (loading) return <div>Loading ...</div>;
 
