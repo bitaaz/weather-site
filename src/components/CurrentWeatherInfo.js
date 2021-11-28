@@ -3,6 +3,7 @@ import { Navbar } from "./navbar/navbar";
 import { useCurrentWeatherInfoFetch } from "./hooks/useCurrentWeatherInfoFetch";
 import { useParams } from "react-router-dom";
 import { CurrentWeatherCard } from "./currentWeatherCard/CurrentWeatherCard";
+import { TodayForecastCard } from "./todayForecastCard/TodayForecastCard";
 
 export function CurrentWeatherInfo() {
   const params = useParams();
@@ -14,6 +15,7 @@ export function CurrentWeatherInfo() {
     <>
       <Navbar />
       <CurrentWeatherCard info={weatherInfo} />
+      <TodayForecastCard info={weatherInfo} />
     </>
   );
 }
