@@ -40,7 +40,7 @@ export function CurrentWeatherCard({ info }) {
             <div className="col mt-5">
               <img
                 className="condition-img"
-                src={info.current.condition.icon}
+                src={info.current.condition.icon.replace("64x64", "128x128")}
                 alt="weather-condition-logo"
               />
             </div>
