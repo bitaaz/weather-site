@@ -5,7 +5,7 @@ export function TodayForecastCard({ info }) {
   return (
     <div
       className="container align-items-center justify-content-center d-flex"
-      style={{ marginTop: "-70px" }}
+      style={{ marginTop: "20px" }}
     >
       <div className="card weather-card" style={{ borderRadius: "20px" }}>
         <div className="card-body">

@@ -3,10 +3,15 @@ import "./CurrentWeatherCard.scss";
 
 export function CurrentWeatherCard({ info }) {
   return (
-    <div className="container height align-items-center justify-content-center d-flex">
+    <div
+      className="container align-items-center justify-content-center d-flex"
+      style={{ marginTop: "90px" }}
+    >
       <div
         className="card weather-card d-flex"
-        style={{ borderRadius: "20px" }}
+        style={{
+          borderRadius: "20px",
+        }}
       >
         <div className="card-body ps-4 py-4 ">
           <div className="row">
