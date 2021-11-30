@@ -1,0 +1,34 @@
+.today-condition-icon{
+  width: 70px; height: 70px;
+}
+.rain-chance{
+  width: 16px;
+  height: 16px;
+}
+
+
+
+@media (max-width: 440px) {
+  .today-temp{
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .today-condition-icon{
+    width: 40px; height: 40px;
+  }
+
+  .rain-chance{
+    width: 10px;
+    height: 10px;
+  }
+
+  .rain-chance-text{
+    font-size: 8px ;
+  }
+}
+
+@media (min-width: 580px) {
+ .afternoon{
+   border-right: 1px solid #e1dede;
+ }
+}
