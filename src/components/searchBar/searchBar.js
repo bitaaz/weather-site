@@ -18,15 +18,13 @@ export function SearchBar() {
 
   let prevSearches = JSON.parse(localStorage.getItem("searchedVal") || "[]");
 
-  console.log("prev: " + prevSearches.length);
-
   const saveSearchData = (data) => {
     if (prevSearches.includes(data)) {
       prevSearches = prevSearches.filter((item) => item !== data);
     }
-    prevSearches.push(data);
+    prevSearches.reverse().push(data);
     if (prevSearches.length > 3) {
-      prevSearches = prevSearches.slice(1);
+      prevSearches.shift();
     }
     localStorage.setItem("searchedVal", JSON.stringify(prevSearches));
   };
@@ -44,7 +42,7 @@ export function SearchBar() {
             setSearchedVal(e.currentTarget.value);
           }}
         />
-        <button className="btn btn-primary">Search</button>
+        {/*<button className="btn btn-primary">Search</button>*/}
       </div>
       {weatherData.length !== 0 && searchedVal !== "" ? (
         <div className="container results align-items-center justify-content-center">
