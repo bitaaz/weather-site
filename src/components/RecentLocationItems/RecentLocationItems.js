@@ -11,17 +11,22 @@ export function RecentLocationItems({ recentLocations }) {
             className="col-12"
             style={{
               width: "max-content",
-              borderRadius: "10px",
-              margin: "5px",
-              textAlign: "center",
-              background: "rgba(0,0,0,0.5)",
             }}
           >
             <Link
               to={`${item.replace(/[, ]+/g, "-")}`}
               style={{ textDecoration: "none", color: "#d0cdcd" }}
             >
-              <p className="mt-3" style={{ fontSize: "14px" }}>
+              <p
+                className="mt-3"
+                style={{
+                  fontSize: "14px",
+                  background: "rgba(0,0,0,0.5)",
+                  borderRadius: "10px",
+                  padding: "13px",
+                  textAlign: "center",
+                }}
+              >
                 {item}
               </p>
             </Link>
