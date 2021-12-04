@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export function RecentLocationItems({ recentLocations }) {
+  const handleLocationItemClick = (location) => {
+    recentLocations = recentLocations.filter((item) => item !== location);
+    recentLocations.reverse().push(location);
+    localStorage.setItem("searchedVal", JSON.stringify(recentLocations));
+  };
   return (
     <div className="container mt-5">
       <div className="row">
@@ -26,6 +31,7 @@ export function RecentLocationItems({ recentLocations }) {
                   padding: "13px",
                   textAlign: "center",
                 }}
+                onClick={() => handleLocationItemClick(item)}
               >
                 {item}
               </p>
