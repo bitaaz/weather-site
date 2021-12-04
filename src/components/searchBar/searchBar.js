@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { setSearchedCity } from "../../reducers/city";
 import { useSearchBarFetch } from "../hooks/useSearchBarFetch";
 import { Link } from "react-router-dom";
-import { RecentLocationItems } from "../RecentLocationItems/RecentLocationItems";
+import { RecentLocationItems } from "../recentLocationItems/RecentLocationItems";
 
 export function SearchBar() {
   const dispatch = useDispatch();
