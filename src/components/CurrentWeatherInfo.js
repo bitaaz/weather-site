@@ -17,7 +17,7 @@ export function CurrentWeatherInfo() {
       <Navbar />
       <CurrentWeatherCard info={weatherInfo} />
       <TodayForecastCard info={weatherInfo} />
-      <TodayWeatherDetailsCard />
+      <TodayWeatherDetailsCard info={weatherInfo} />
     </>
   );
 }
