@@ -4,6 +4,8 @@ import { initialState } from "../Constants";
 
 export function useCurrentWeatherInfoFetch(city, days) {
   const [weatherInfo, setWeatherInfo] = useState(initialState);
+  const [weatherInfos, setWeatherInfos] = useState(initialState);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -16,6 +18,7 @@ export function useCurrentWeatherInfoFetch(city, days) {
 
         currentWeather = await API.fetch_current_weather_condition(city, days);
         setWeatherInfo({ ...currentWeather });
+        setWeatherInfos({ ...currentWeather });
       } catch (error) {
         setError(true);
       }
@@ -25,5 +28,5 @@ export function useCurrentWeatherInfoFetch(city, days) {
     await fetchCurrentWeatherInfo();
   }, [city]);
 
-  return { weatherInfo, loading, error };
+  return { weatherInfo, weatherInfos, loading, error };
 }
