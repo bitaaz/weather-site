@@ -89,7 +89,7 @@ export function TodayForecastCard({ info }) {
                     </h6>
                   </div>
                 ) : (
-                  <p>--</p>
+                  <p className="mt-2">--</p>
                 )}
               </div>
               <div
@@ -100,7 +100,7 @@ export function TodayForecastCard({ info }) {
                   className="location-text"
                   style={{
                     color:
-                      currentHour >= 12 && currentHour < 18 ? "black" : "gray",
+                      currentHour >= 6 && currentHour < 18 ? "black" : "gray",
                     fontWeight:
                       currentHour >= 12 && currentHour < 18 ? "bold" : "normal",
                   }}
@@ -111,7 +111,7 @@ export function TodayForecastCard({ info }) {
                   className="today-temp"
                   style={{
                     color:
-                      currentHour >= 12 && currentHour < 18 ? "black" : "gray",
+                      currentHour >= 6 && currentHour < 18 ? "black" : "gray",
                     fontWeight:
                       currentHour >= 12 && currentHour < 18 ? "bold" : "normal",
                   }}
@@ -123,7 +123,7 @@ export function TodayForecastCard({ info }) {
                   className="today-condition-icon"
                   alt="afternoon-condition-img"
                 />
-                {currentHour >= 12 && currentHour < 18 ? (
+                {currentHour >= 6 && currentHour < 18 ? (
                   <div
                     style={{
                       display: "flex",
@@ -155,7 +155,7 @@ export function TodayForecastCard({ info }) {
                     </h6>
                   </div>
                 ) : (
-                  <p>--</p>
+                  <p className="mt-2">--</p>
                 )}
               </div>
               <div
@@ -165,7 +165,7 @@ export function TodayForecastCard({ info }) {
                 <h5
                   className="location-text"
                   style={{
-                    color: currentHour >= 18 ? "black" : "gray",
+                    color: currentHour >= 6 ? "black" : "gray",
                     fontWeight: currentHour >= 18 ? "bold" : "normal",
                   }}
                 >
@@ -174,7 +174,7 @@ export function TodayForecastCard({ info }) {
                 <h2
                   className="today-temp"
                   style={{
-                    color: currentHour >= 18 ? "black" : "gray",
+                    color: currentHour >= 6 ? "black" : "gray",
                     fontWeight: currentHour >= 18 ? "bold" : "normal",
                   }}
                 >
@@ -185,7 +185,7 @@ export function TodayForecastCard({ info }) {
                   className="today-condition-icon"
                   alt="evening-condition-img"
                 />
-                {currentHour > 18 ? (
+                {currentHour >= 6 ? (
                   <div
                     style={{
                       display: "flex",
@@ -207,17 +207,14 @@ export function TodayForecastCard({ info }) {
                     <h6
                       className="mt-2 rain-chance-text"
                       style={{
-                        fontWeight:
-                          currentHour >= 6 && currentHour < 12
-                            ? "bold"
-                            : "normal",
+                        fontWeight: currentHour >= 18 ? "bold" : "normal",
                       }}
                     >
                       {info.forecast.forecastday[0].hour[20].chance_of_rain}%
                     </h6>
                   </div>
                 ) : (
-                  <p>--</p>
+                  <p className="mt-2">--</p>
                 )}
               </div>
               <div
@@ -240,10 +237,17 @@ export function TodayForecastCard({ info }) {
                       currentHour >= 0 && currentHour < 6 ? "bold" : "normal",
                   }}
                 >
-                  {info.forecast.forecastday[0].hour[2].temp_c}°
+                  {currentHour >= 6
+                    ? info.forecast.forecastday[1].hour[2].temp_c
+                    : info.forecast.forecastday[0].hour[2].temp_c}
+                  °
                 </h2>
                 <img
-                  src={info.forecast.forecastday[0].hour[2].condition.icon}
+                  src={
+                    currentHour >= 6
+                      ? info.forecast.forecastday[1].hour[2].condition.icon
+                      : info.forecast.forecastday[0].hour[2].condition.icon
+                  }
                   className="today-condition-icon"
                   alt="overnight-condition-img"
                 />
@@ -266,7 +270,10 @@ export function TodayForecastCard({ info }) {
                     <path d="M8 16a6 6 0 0 0 6-6c0-1.655-1.122-2.904-2.432-4.362C10.254 4.176 8.75 2.503 8 0c0 0-6 5.686-6 10a6 6 0 0 0 6 6ZM6.646 4.646l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448c.82-1.641 1.717-2.753 2.093-3.13Z" />
                   </svg>
                   <h6 className="mt-2 rain-chance-text">
-                    {info.forecast.forecastday[0].hour[2].chance_of_rain}%
+                    {currentHour >= 6
+                      ? info.forecast.forecastday[1].hour[2].chance_of_rain
+                      : info.forecast.forecastday[0].hour[2].chance_of_rain}
+                    %
                   </h6>
                 </div>
               </div>
