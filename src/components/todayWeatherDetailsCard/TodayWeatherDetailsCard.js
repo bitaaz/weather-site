@@ -3,7 +3,7 @@ import React from "react";
 export function TodayWeatherDetailsCard({ info }) {
   let currentDate = new Date();
   return (
-    <div className="container mt-3 mb-5 align-items-center d-flex justify-content-center">
+    <div className="container mt-3 align-items-center d-flex justify-content-center">
       <div className="card weather-card" style={{ borderRadius: "20px" }}>
         <div className="card-body mx-1">
           <div className="row">
