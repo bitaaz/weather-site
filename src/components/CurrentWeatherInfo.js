@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { CurrentWeatherCard } from "./currentWeatherCard/CurrentWeatherCard";
 import { TodayForecastCard } from "./todayForecastCard/TodayForecastCard";
 import { TodayWeatherDetailsCard } from "./todayWeatherDetailsCard/TodayWeatherDetailsCard";
+import { HourlyMinMaxTemp } from "./hourlyMinMaxTemp/HourlyMinMaxTemp";
 
 export function CurrentWeatherInfo() {
   const params = useParams();
@@ -19,6 +20,7 @@ export function CurrentWeatherInfo() {
       <CurrentWeatherCard info={weatherInfo} />
       <TodayForecastCard info={weatherInfos} />
       <TodayWeatherDetailsCard info={weatherInfo} />
+      <HourlyMinMaxTemp />
     </>
   );
 }
