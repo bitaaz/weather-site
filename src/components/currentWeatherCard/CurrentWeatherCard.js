@@ -5,7 +5,7 @@ export function CurrentWeatherCard({ info }) {
   return (
     <div
       className="container align-items-center justify-content-center d-flex"
-      style={{ marginTop: "90px" }}
+      style={{ marginTop: "5px" }}
     >
       <div
         className="card weather-card d-flex"
