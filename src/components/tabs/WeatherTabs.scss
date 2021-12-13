@@ -1,0 +1,23 @@
+.nav-link {
+  color: white !important;
+  background-color: #1c2b34 !important;
+  margin-right: 20vh;
+  margin-left: 20vh;
+
+  &:hover{
+    border-bottom:2px solid #ffffff !important;
+    border-right-color: #1c2b34 !important;
+    border-left-color: #1c2b34 !important;
+  }
+}
+.nav-link.active {
+  border-bottom:2px solid #ffffff !important;
+  border-right-color: #1c2b34 !important;
+  border-left-color: #1c2b34 !important;
+
+  &:hover{
+    //border: 1px solid transparent !important;
+    color: white !important;
+  }
+}
+
