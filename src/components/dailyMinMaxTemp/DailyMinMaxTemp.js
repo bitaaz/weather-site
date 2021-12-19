@@ -17,7 +17,6 @@ export function DailyMinMaxTemp({ info }) {
   const maxTemp = Math.max.apply(Math, maxTemps);
   const minTemp = Math.min.apply(Math, minTemps);
 
-  console.log(minTemp);
   const LineData = [
     [
       "x",
