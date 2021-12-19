@@ -5,9 +5,9 @@ import { CurrentWeatherCard } from "../currentWeatherCard/CurrentWeatherCard";
 import { TodayForecastCard } from "../todayForecastCard/TodayForecastCard";
 import { TodayWeatherDetailsCard } from "../todayWeatherDetailsCard/TodayWeatherDetailsCard";
 import { DailyMinMaxTemp } from "../dailyMinMaxTemp/DailyMinMaxTemp";
+import { HourlyForecastCard } from "../hourlyForecast/HourlyForecastCard";
 
 export function WeatherTabs({ info, infos }) {
-  console.log(info);
   return (
     <div className="container-fluid" style={{ marginTop: "60px" }}>
       <div className="row">
@@ -26,7 +26,7 @@ export function WeatherTabs({ info, infos }) {
             <DailyMinMaxTemp info={infos} />
           </Tab>
           <Tab title="Hourly" eventKey="Hourly">
-            {/*<h1>Profile</h1>*/}
+            <HourlyForecastCard infos={infos} />
           </Tab>
           <Tab title="3 Day" eventKey="3 Day">
             {/*<h1>Contact</h1>*/}
