@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HourlyForecastCard.scss";
 
 export function HourlyForecastCard({ infos }) {
   // console.log(infos);
+  const [boxOpen, setBoxOpen] = useState({
+    isOpened: {},
+  });
+
+  const handleArrowClick = (index) => {
+    boxOpen.isOpened[index]
+      ? setBoxOpen((prevState) => {
+          return {
+            isOpened: { ...prevState.isOpened, [index]: false },
+          };
+        })
+      : setBoxOpen((prevState) => {
+          return {
+            isOpened: { ...prevState.isOpened, [index]: true },
+          };
+        });
+  };
+
+  const { isOpened } = boxOpen;
+
   return (
     <div className="container d-flex align-items-center justify-content-center">
       <div
@@ -28,14 +48,17 @@ export function HourlyForecastCard({ infos }) {
           <p className="m-0  location-text" style={{ fontWeight: "400" }}>
             As of {infos.location.localtime.split(" ")[1]}
           </p>
-          <div className="mt-4 border-top">
-            {infos.forecast.forecastday.map((item) => (
-              <>
-                <h6 className="fw-bold pt-2" style={{ fontSize: "22px" }}>
+          <div className="mt-4 ">
+            {infos.forecast.forecastday.map((item, id) => (
+              <div key={id}>
+                <h6
+                  className="fw-bold pt-2 border-top"
+                  style={{ fontSize: "22px" }}
+                >
                   {item.date}
                 </h6>
-                {item.hour.map((hour) => (
-                  <>
+                {item.hour.map((hour, id) => (
+                  <div key={id}>
                     <div className="d-flex align-items-center border-top pt-3">
                       <p className="me-5 time">{hour.time.split(" ")[1]}</p>
                       <p className="fw-bold fs-5 temp">{hour.temp_c}°</p>
@@ -70,70 +93,94 @@ export function HourlyForecastCard({ infos }) {
                       <p className="wind">
                         {hour.wind_dir} {hour.wind_kph} km/h
                       </p>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        className="bi bi-chevron-down"
-                        viewBox="0 0 16 16"
-                        style={{
-                          marginBottom: "2%",
-                          color: "#0977c4",
-                          fontSize: "40px",
-                        }}
-                      >
-                        <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
-                      </svg>
+                      {!isOpened[id] ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                          className="bi bi-chevron-down"
+                          viewBox="0 0 16 16"
+                          style={{
+                            marginBottom: "2%",
+                            color: "#0977c4",
+                            fontSize: "40px",
+                          }}
+                          onClick={() => handleArrowClick(id)}
+                        >
+                          <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                          className="bi bi-chevron-up"
+                          viewBox="0 0 16 16"
+                          style={{
+                            marginBottom: "2%",
+                            color: "#0977c4",
+                            fontSize: "40px",
+                          }}
+                          onClick={() => handleArrowClick(id)}
+                        >
+                          <path d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                        </svg>
+                      )}
                     </div>
-                    <div className="container d-flex align-items-center justify-content-center">
-                      <div
-                        className="card w-100 mb-4 d-flex p-3"
-                        style={{ borderRadius: "20px" }}
-                      >
-                        <div className="card-body ">
-                          <div className="row">
-                            <div className="col">
-                              <p className="details-title">Feels Like</p>
-                              <p className="details-value">
-                                {hour.feelslike_c}°
-                              </p>
+                    {isOpened[id] && (
+                      <div className="container d-flex align-items-center justify-content-center">
+                        <div
+                          className="card w-100 mb-4 d-flex p-3"
+                          style={{ borderRadius: "20px" }}
+                        >
+                          <div className="card-body ">
+                            <div className="row">
+                              <div className="col">
+                                <p className="details-title">Feels Like</p>
+                                <p className="details-value">
+                                  {hour.feelslike_c}°
+                                </p>
+                              </div>
+                              <div className="col">
+                                <p className="details-title">Wind</p>
+                                <p className="details-value">
+                                  {hour.wind_dir} {hour.wind_kph} km/h
+                                </p>
+                              </div>
+                              <div className="col">
+                                <p className="details-title">Humidity</p>
+                                <p className="details-value">
+                                  {hour.humidity}%
+                                </p>
+                              </div>
                             </div>
-                            <div className="col">
-                              <p className="details-title">Wind</p>
-                              <p className="details-value">
-                                {hour.wind_dir} {hour.wind_kph} km/h
-                              </p>
-                            </div>
-                            <div className="col">
-                              <p className="details-title">Humidity</p>
-                              <p className="details-value">{hour.humidity}%</p>
-                            </div>
-                          </div>
-                          <div className="row border-top">
-                            <div className="col mt-3">
-                              <p className="details-title">UV Index</p>
-                              <p className="details-value">{hour.uv} of 10</p>
-                            </div>
-                            <div className="col mt-3">
-                              <p className="details-title">Wind Chill</p>
-                              <p className="details-value">
-                                {hour.windchill_c}°
-                              </p>
-                            </div>
-                            <div className="col mt-3">
-                              <p className="details-title">Pressure</p>
-                              <p className="details-value">
-                                {hour.pressure_mb}mb
-                              </p>
+                            <div className="row border-top">
+                              <div className="col mt-3">
+                                <p className="details-title">UV Index</p>
+                                <p className="details-value">{hour.uv} of 10</p>
+                              </div>
+                              <div className="col mt-3">
+                                <p className="details-title">Wind Chill</p>
+                                <p className="details-value">
+                                  {hour.windchill_c}°
+                                </p>
+                              </div>
+                              <div className="col mt-3">
+                                <p className="details-title">Pressure</p>
+                                <p className="details-value">
+                                  {hour.pressure_mb}mb
+                                </p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </>
+                    )}
+                  </div>
                 ))}
-              </>
+              </div>
             ))}
           </div>
         </div>
