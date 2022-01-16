@@ -9,6 +9,19 @@ export function WeatherInfo() {
   const { weatherInfo } = useCurrentWeatherInfoFetch(params.city, 1);
   const { weatherInfos } = useCurrentWeatherInfoFetch(params.city, 3);
 
+  // console.log(weatherInfos);
+
+  // weatherInfos.forecast.forecastday[0].hour.map((item) => {
+  //   console.log(item);
+  // });
+
+  // weatherInfos.forecast.forecastday.map((item) => {
+  //   // console.log(item);
+  //   // item.hour.map((hours) => {
+  //   //   console.log(hours);
+  //   // });
+  // });
+
   return (
     <>
       <Navbar />
