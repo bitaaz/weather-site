@@ -6,6 +6,7 @@ import { TodayForecastCard } from "../todayForecastCard/TodayForecastCard";
 import { TodayWeatherDetailsCard } from "../todayWeatherDetailsCard/TodayWeatherDetailsCard";
 import { DailyMinMaxTemp } from "../dailyMinMaxTemp/DailyMinMaxTemp";
 import { HourlyForecastCard } from "../hourlyForecast/HourlyForecastCard";
+import { DailyForecastCard } from "../dailyForecast/DailyForecastCard";
 
 export function WeatherTabs({ info, infos }) {
   return (
@@ -13,7 +14,7 @@ export function WeatherTabs({ info, infos }) {
       <div className="row">
         <Tabs
           className="mb-3 justify-content-center d-flex myClass"
-          defaultActiveKey="Today"
+          defaultActiveKey="3 Day"
           style={{
             backgroundColor: "#1c2b34",
             borderColor: "#1c2b34",
@@ -29,7 +30,7 @@ export function WeatherTabs({ info, infos }) {
             <HourlyForecastCard infos={infos} />
           </Tab>
           <Tab title="3 Day" eventKey="3 Day">
-            {/*<h1>Contact</h1>*/}
+            <DailyForecastCard infos={infos} />
           </Tab>
         </Tabs>
       </div>
