@@ -14,7 +14,7 @@ export function WeatherTabs({ info, infos }) {
       <div className="row">
         <Tabs
           className="mb-3 justify-content-center d-flex myClass"
-          defaultActiveKey="3 Day"
+          defaultActiveKey="Today"
           style={{
             backgroundColor: "#1c2b34",
             borderColor: "#1c2b34",
